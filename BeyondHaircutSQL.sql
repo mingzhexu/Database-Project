@@ -127,3 +127,21 @@ CREATE TABLE Comment (
 );
 
 
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Bob Cut', 'Female', '20');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Bouffant', 'Female', '30');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Bowl Cut', 'Male', '15');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Butch Cut', 'Male', '15');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Buzz Cut', 'Male', '15');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Caeser Cut', 'Male', '20');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Comb Over', 'Male', '20');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Crew Cut', 'Male', '15');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Flat Top', 'Male', '15');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('High Top', 'Male', '20');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Long Straight', 'Female', '25');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Long Wave', 'Female', '30');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Mullet', 'Female', '20');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Pony Hair', 'Female', '25');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Short Straight', 'Female', '20');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Short Wave', 'Female', '30');
+INSERT INTO `beyondHairCut`.`Hairstyle` (`Style`, `Gender`, `Price`) VALUES ('Not Sure', 'NA', '0');
+#UPDATE `beyondHairCut`.`Hairstyle` SET `Gender`='Male' WHERE `Style`='duckass';
