@@ -167,4 +167,4 @@ UPDATE `beyondHairCut`.`Hairstyle` SET `Duration`='30' WHERE `Style`='Pony Hair'
 UPDATE `beyondHairCut`.`Hairstyle` SET `Duration`='40' WHERE `Style`='Short Straight';
 UPDATE `beyondHairCut`.`Hairstyle` SET `Duration`='50' WHERE `Style`='Short Wave';
 
-INSERT INTO `beyondHairCut`.`Address` (`AddressId`, `Street`, `City`, `State`, `Zip`) VALUES ('0', 'NA', 'NA', 'NA', 'NA');
+INSERT INTO `beyondHairCut`.`Address` (`AddressId`, `Street`, `City`, `State`, `Zip`) VALUES ('0', 'NA', 'NA', 'NA', '0');
