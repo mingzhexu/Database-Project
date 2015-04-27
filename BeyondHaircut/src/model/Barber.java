@@ -43,6 +43,12 @@ public class Barber {
 		this.storeId = storeId;
 		
 	}
+	
+	public Barber( String firstName,String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;;
+		
+	}
     
     
 

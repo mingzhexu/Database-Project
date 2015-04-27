@@ -23,17 +23,18 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/appointmentcreate")
 public class AppointmentCreate extends HttpServlet{
-	
+
 	protected AppointmentDao appointmentDao;
 	protected BarberDao barderDao;
 	protected CustomerDao customerDao;
+	protected HairstyleDao hairstyleDao;
 
 	@Override
 	public void init() throws ServletException {
 		appointmentDao = AppointmentDao.getInstance();
 		barderDao = BarberDao.getInstance();
 		customerDao = CustomerDao.getInstance();
-		
+
 	}
 
 	@Override
@@ -52,38 +53,50 @@ public class AppointmentCreate extends HttpServlet{
 		// Map for storing messages.
 		Map<String, String> messages = new HashMap<String, String>();
 		req.setAttribute("messages", messages);
-		
+
 		// Retrieve and validate name.
-		String customerId = req.getParameter("customerid");
-		if (customerId == null || customerId.trim().isEmpty()) {
-			messages.put("success", "Invalid CustomerId");
-		} else {
-			// Create the Appointment
-			String customerid = req.getParameter("customerid");
-			String barberid = req.getParameter("barberId");
-			String date = req.getParameter("date");
-			String duration = req.getParameter("duration");
-			String storeid = req.getParameter("storeId");
-			String style = req.getParameter("style");
-			String price = req.getParameter("price");
-			DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-			Date datetime;
-			
-			try {
-				datetime = format.parse(date);
+		String username = req.getParameter("userName");
+		Customer customer;
+		try {
+			customer = customerDao.getCustomerFromUserName(username);
+			System.out.print(username);
+
+			if (customer == null) {
+				messages.put("success", "Invalid Username");
+			}else {
+				// Create the Appointment
+				int customerId = customer.getCustomerID();
+				System.out.print(customer.getCustomerID());
+				DateFormat format = new SimpleDateFormat("yyyymmdd");
+				String stringdate = req.getParameter("datetime");
+				
+				String barberid = req.getParameter("barberid");
+				if(barberid == ""){
+					barberid = "0";
+				}
+				Date datetime = null;
+				String storeid = req.getParameter("storeid");
+				String style = req.getParameter("style");
+				System.out.print(style);
+
+				try {
+					datetime = format.parse(stringdate);
+					System.out.print(datetime);
+				} catch ( ParseException e) {
+					e.printStackTrace();
+					//throw new IOException(e);
+				}
+				
 				Appointment appointment = 
-						new Appointment(Integer.parseInt(storeid), datetime, 
-						Integer.parseInt(duration), 
-						Integer.parseInt(customerid), 
-						Integer.parseInt(barberid),
-						style,
-						Integer.parseInt(price));
+						new Appointment(Integer.parseInt(storeid), 
+								datetime, customerId, 
+								Integer.parseInt(barberid), style);
 				appointment = appointmentDao.create(appointment);
 				messages.put("success", "Successfully created a comment for barber No." + barberid);
-			} catch (SQLException | ParseException e) {
-				e.printStackTrace();
-				throw new IOException(e);
 			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 
 		req.getRequestDispatcher("/AppointmentCreate.jsp").forward(req, resp);

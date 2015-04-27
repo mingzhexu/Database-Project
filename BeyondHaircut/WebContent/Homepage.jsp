@@ -40,6 +40,6 @@
 
 
 <br/><br/>
-<p>Check out our <a href="ListofBarbers.jsp">Top Barbers</a> and their <a href="GetComments.jsp"> Popular Comments!</a></p>
+<p>Check out our <a href="Barbers.jsp">Top Barbers</a> and their <a href="GetComments.jsp"> Popular Comments!</a></p>
 </body>
 </html>

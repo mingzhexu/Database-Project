@@ -13,7 +13,9 @@ public class Store {
 		this.addressId = addressId;
 		this.phone = phone;
 	}
-
+	public Store(){
+		
+	}
 	public Store(int storeId) {
 		this.storeId = storeId;
 	}

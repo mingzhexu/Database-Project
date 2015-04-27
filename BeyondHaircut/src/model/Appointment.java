@@ -5,22 +5,25 @@ public class Appointment {
 	protected int appointmentId;
 	protected int storeId;
 	protected Date Date;
-	protected int Duration;
 	protected int CustomerId;
 	protected int BarberId;
 	protected String Style;
-	protected int Price;
 	
 	public Appointment 
-	(int storeId, Date Date, int Duration,int CustomerId, int BarberId, 
-	 String Style, int Price){
+	(int storeId, Date Date, int CustomerId, int BarberId, 
+	 String Style){
 		this.storeId = storeId;
 		this.Date = Date;
-		this.Duration = Duration;
+		//this.Duration = Duration;
 		this.CustomerId = CustomerId;
 		this.BarberId = BarberId;
 		this.Style = Style;
-		this.Price = Price;
+	}
+	
+	public Appointment(int storeId, Date datetime, int customerid){
+		this.storeId = storeId;
+		this.Date = datetime;
+		this.CustomerId = customerid;
 	}
 	
 	public int getAppointmentId(){
@@ -60,15 +63,6 @@ public class Appointment {
 		Style = style;
 	}
 
-
-	public int getPrice() {
-		return Price;
-	}
-
-	public void setPrice(int price) {
-		Price = price;
-	}
-
 	public void setCustomerId(int customerId) {
 		CustomerId = customerId;
 	}
@@ -76,12 +70,6 @@ public class Appointment {
 
 	public void setDate(Date d){
 		this.Date = d;
-	}
-	public int getDuration(){
-		return Duration;
-	}
-	public void setDuration(int d){
-		this.Duration = d;
 	}
 	
 	public int getCustomerId(){

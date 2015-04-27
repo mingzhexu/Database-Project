@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StoreDao {
 protected ConnectionManager connectionManager;
@@ -63,6 +65,47 @@ protected ConnectionManager connectionManager;
 			}
 		}
 	}
+	
+	public Store getStoreInforbyStoreId(int storeid) throws SQLException {
+		Store store = new Store();
+	String selectStoreByStoreId = 
+			"SELECT AddressId,Phone FROM Store WHERE StoreId = ? ;";
+	Connection connection = null;
+	PreparedStatement selectStmt = null;
+	ResultSet results = null;
+	try {
+		connection = connectionManager.getConnection();
+		selectStmt = connection.prepareStatement(selectStoreByStoreId);
+		selectStmt.setInt(1, storeid);
+
+		results = selectStmt.executeQuery();
+
+		if(results.next()) {
+			int addressId = results.getInt("AddressId");
+            String phone = results.getString("Phone");
+            
+            store = new Store(addressId, phone);
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+		throw e;
+	} finally {
+		if(connection != null) {
+			connection.close();
+		}
+		if(selectStmt != null) {
+			selectStmt.close();
+		}
+		if(results != null) {
+			results.close();
+		}
+	}
+	
+	return store;
+}
+	
+	
+	
 	
 	public Store delete(Store store) throws SQLException {
 		String deleteStore = "DELETE FROM Store WHERE StoreId=?;";

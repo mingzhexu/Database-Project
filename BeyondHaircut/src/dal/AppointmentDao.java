@@ -28,8 +28,8 @@ public class AppointmentDao {
 	public Appointment create(Appointment appointment) throws SQLException {
 		String insertAppointment = 
 				"INSERT INTO Appointment "
-				+ "(storeId, Date, Duration, CustomerId, BarberId, Style, Price)"
-				+ " VALUES (?,?,?,?,?,?,?);";
+				+ "(storeId, Date, CustomerId, BarberId, Style)"
+				+ " VALUES (?,?,?,?,?);";
 		Connection connection = null;
 		PreparedStatement insertStmt = null;
 		ResultSet resultKey = null;
@@ -38,11 +38,9 @@ public class AppointmentDao {
 			insertStmt = connection.prepareStatement(insertAppointment, Statement.RETURN_GENERATED_KEYS);
 			insertStmt.setInt(1, appointment.getStoreId());
 			insertStmt.setTimestamp(2, new Timestamp(appointment.getDate().getTime()));
-			insertStmt.setInt(3, appointment.getDuration());
-			insertStmt.setInt(4, appointment.getCustomerId());
-			insertStmt.setInt(5, appointment.getBarberId());
-			insertStmt.setString(6, appointment.getStyle());
-			insertStmt.setDouble(7, appointment.getPrice());
+			insertStmt.setInt(3, appointment.getCustomerId());
+			insertStmt.setInt(4, appointment.getBarberId());
+			insertStmt.setString(5, appointment.getStyle());
 
 			insertStmt.executeUpdate();
 			
@@ -78,9 +76,7 @@ public class AppointmentDao {
 		List<Appointment> appointments = new ArrayList<Appointment>();
 		String selectAppointmentsbyCustomerID = 
 				
-				"SELECT StoreId,Date,Duration,CustomerId, BarberId,Style,Price "
-				+ "FROM Appointment "
-				+ "WHERE CustomerId = ?";
+				"SELECT StoreId,Date,CustomerId, BarberId,Style FROM Appointment WHERE CustomerId = ?";
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
 		ResultSet results = null;
@@ -94,12 +90,10 @@ public class AppointmentDao {
 				int custId = results.getInt("CustomerId");
 				int storeid = results.getInt("StoreId");
 				Date date = results.getDate("Date");
-				int duration = results.getInt("Duration");
 				int bId = results.getInt("BarberId");
 				String style = results.getString("Style");
-				int price = results.getInt("Price");
 				Appointment appoint = 
-						new Appointment(storeid, date, duration, custId, bId, style, price);
+						new Appointment(storeid, date, custId, bId, style);
 				appointments.add(appoint);
 			}
 		} catch (SQLException e) {

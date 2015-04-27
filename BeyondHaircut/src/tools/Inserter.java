@@ -52,12 +52,12 @@ public class Inserter {
 		creditcard2 = creditCardDao.create(creditcard2);
 		Comment comment1 = new Comment("he is a good barber.", barber1.getBarberId(), customer1.getCustomerID());
 		comment1 = commentDao.create(comment1);
-		Hairstyle style1 = new Hairstyle("duckass", "male", Image, Image, 20);
+		Hairstyle style1 = new Hairstyle("duckass", "male", Image, Image, 20, 30);
 		style1 = hairstyleDao.create(style1);
 		Comment comment2 = new Comment("this is a good experience." , barber2.getBarberId(),customer2.getCustomerID());
 		comment2 = commentDao.create(comment2);
-		Appointment appoint1 = new Appointment(store1.getStoreId(), date, 30, 
-				customer1.getCustomerID(), barber1.getBarberId(), style1.getStyle(), 20); 
+		Appointment appoint1 = new Appointment(store1.getStoreId(), date, 
+				customer1.getCustomerID(), barber1.getBarberId(), style1.getStyle()); 
 		appoint1 = appDao.create(appoint1);
 		
 

@@ -78,6 +78,48 @@ public class AddressDao {
 			}
         }
     }
+    // get address info by id
+    public Address getAddressById(int AddressId) throws SQLException {
+		String selectAddressbyId = 
+				"SELECT AddressId, Street, City, State, Zip, Country FROM Address WHERE AddressId = ?;";
+		Connection connection = null;
+		PreparedStatement selectStmt = null;
+		ResultSet results = null;
+		try {
+			connection = connectionManager.getConnection();
+			selectStmt = connection.prepareStatement(selectAddressbyId);
+			selectStmt.setInt(1, AddressId);
+
+			results = selectStmt.executeQuery();
+
+			if(results.next()) {
+				int aid = results.getInt(AddressId);
+				String street = results.getString("Street");
+				String city = results.getString("City");
+				String state = results.getString("State");
+				int zip = results.getInt("Zip");
+				String country = results.getString("Country");
+
+				Address address = new Address(aid, street,city, state, zip,country);
+				return address;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			if(connection != null) {
+				connection.close();
+			}
+			if(selectStmt != null) {
+				selectStmt.close();
+			}
+			if(results != null) {
+				results.close();
+			}
+		}
+		return null;
+	}
+
 
     public Address delete(Address address) throws SQLException {
         String deleteItem = "DELETE FROM Items WHERE AddressId = ?;";

@@ -83,6 +83,51 @@ public class BarberDao {
 			}
 		}
 	}
+	
+	public List<Barber> getBarberInforbyBarberId(int barberid) throws SQLException {
+		List<Barber> barbers = new ArrayList<Barber>();
+	String selectContentByCommentId = 
+			"SELECT FirstName,LastName FROM Barber WHERE BarberId = ? ;";
+	Connection connection = null;
+	PreparedStatement selectStmt = null;
+	ResultSet results = null;
+	try {
+		connection = connectionManager.getConnection();
+		selectStmt = connection.prepareStatement(selectContentByCommentId);
+		selectStmt.setInt(1, barberid);
+
+		results = selectStmt.executeQuery();
+
+		if(results.next()) {
+			String barberFirstName = results.getString("FirstName");
+            String barberLastName = results.getString("LastName");
+            
+            Barber barberinfo = new Barber(barberFirstName, barberLastName);
+			barbers.add(barberinfo);
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+		throw e;
+	} finally {
+		if(connection != null) {
+			connection.close();
+		}
+		if(selectStmt != null) {
+			selectStmt.close();
+		}
+		if(results != null) {
+			results.close();
+		}
+	}
+	
+	return barbers;
+}
+	
+	
+	
+	
+	
+	
 
 //	public int getBarberIdbyFirstName(String firstname) throws SQLException {
 //		String selectContentByCommentId = 

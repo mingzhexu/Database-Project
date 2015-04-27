@@ -21,19 +21,17 @@
 				name="userName" value="">
 		</p>
 		<p>
-			<label for="date">Date (yyyy-mm-dd)</label> <input id="date"
-				name="date" value="">
+			<label for="datetime">Date and Time</label> 
+			<input id="datetime" name="datetime" value="">
+		</p>
+		
+		<p>
+			<label for="barberid">Which Barber? </label> 
+			<input id="barberid" name="barberid" value="">
 		</p>
 		<p>
-			<label for="time">Time</label> <input id="time" name="time" value="">
-		</p>
-		<p>
-			<label for="barber">Which Barber? (optional)</label> <input
-				id="barber" name="barber" value="">
-		</p>
-		<p>
-			<label for="store">which store? (store id)</label> <input id="store"
-				name="store" value="">
+			<label for="storeid">which store? (store id)</label> 
+			<input id="storeid" name="storeid" value="">
 		</p>
 		<table style="width: 100%">
 			<tr>
@@ -48,7 +46,7 @@
   			</tr>
 		</table>
 		<p>
-			<label for="style">Your Hair Style (optional)</label>
+			<label for="style">Your Hair Style</label>
 			<input id="style" name="style" value="">
 		</p>
 		<p>
@@ -60,7 +58,7 @@
 	<p>
 		<span id="successMessage"><b>${messages.success}</b></span>
 	</p>
-	<a href="Portal.jsp"><button type="button"> Go Back To My Portal </button></a>
+	<a href="Portal.jsp?username=${fn:escapeXml(param.username)}"><button type="button"> Go Back To My Portal </button></a>
 	<a href="Homepage.jsp"><button type="button"> Go Back To Home Page </button></a>
 </body>
 </html>

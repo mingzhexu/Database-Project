@@ -2,7 +2,6 @@ package model;
 
 public class Address {
 	protected int addressId;
-	protected int CustomerId;
 	protected String street;
 	protected String city;
 	protected String state;
@@ -10,10 +9,9 @@ public class Address {
 	protected String country;
 
 
-	public Address(int addressId, int CustomerId, String street, String city,
+	public Address(int addressId, String street, String city,
 			String state, int zip, String country){
 		this.addressId = addressId;
-		this.CustomerId = CustomerId;
 		this.street = street;
 		this.city = city;
 		this.state = state;
@@ -21,7 +19,10 @@ public class Address {
 		this.country = country;
 	}
 	
-	
+
+	public Address(){
+		
+	}
 	public Address(int addressId){
 		this.addressId = addressId;
 	}
@@ -34,14 +35,6 @@ public class Address {
 		this.country = country;
 	}
 	
-	public int getCustomerId() {
-		return CustomerId;
-	}
-
-	public void setCustomerId(int customerId) {
-		CustomerId = customerId;
-	}
-
 	public int getAddressId() {
 		return addressId;
 	}

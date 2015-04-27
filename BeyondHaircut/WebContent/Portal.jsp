@@ -16,7 +16,7 @@
 	<p align="center"> Dear friend ${fn:escapeXml(param.username)}, Welcome back!!</p>
 	<p align="right"><a href="Homepage.jsp"><button type="button">Sign Out</button></a></p>
 	<p>Make An Appointment</p>
-	<a href="AppointmentCreate.jsp?username='${fn:escapeXml(param.username)}'">
+	<a href="AppointmentCreate.jsp?username=${fn:escapeXml(param.username)}">
 		<button type="button">New Appointment</button>
 	</a>
 
