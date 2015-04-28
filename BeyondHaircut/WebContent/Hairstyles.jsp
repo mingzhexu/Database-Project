@@ -10,26 +10,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Top Hair Styles</title>
+<style>
+body {
+    background-color;
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+p { 
+    word-spacing: 5px;
+}
+body {background-color:pink}
+</style>
 </head>
 <body>
 <form action="barbers" method="post"></form>
 	<table border="2">
 		<tr>
-			<th>BarberId</th>
-			<th>FirstName</th>
-			<th>About</th>
-			<th>Rating</th>
-			<th>Choose me</th>
+			<th>Hair Style</th>
+			<th>Gender</th>
+			<th>Picture</th>
+			<th>Price</th>
+			<th>Estimate Time</th>
 		</tr>
-		<c:forEach items="${barbers}" var="barber">
+		<c:forEach items="${hairstyles}" var="hairstyle">
 			<tr>
-				<td><c:out value="${barber.getBarberId()}" /></td>
-				<td><c:out value="${barber.getFirstName()}" /></td>
-				<td><c:out value="${barber.getAbout()}" /></td>
-				<td><c:out value="${barber.getRating()}" /></td>
-				<td>Choose <a href="AppointmentCreate.jsp"><c:out
-							value="${barber.getFirstName()}" /> </a> Barber No.<c:out
-						value="${barber.getBarberId()}" /></td>
+				<td><c:out value="${hairstyle.getStyle()}" /></td>
+				<td><c:out value="${hairstyle.getGender()}" /></td>
+				<td><c:out value="${hairstyle.getPicture()}" /></td>
+				<td><c:out value="${hairstyle.getPrice()}" /></td>
+				<td><c:out value="${hairstyle.getDuration()}" /></td>
 
 			</tr>
 		</c:forEach>

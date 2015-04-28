@@ -54,41 +54,53 @@ public class CustomerCreate extends HttpServlet {
         String userName = req.getParameter("userName");
         if (userName == null || userName.trim().isEmpty()) {
             messages.put("success", "Invalid UserName");
-        } else {
-        	// Create the BlogUser.
-        	String password = req.getParameter("password");
-        	String gender = req.getParameter("gender");
-        	String firstName = req.getParameter("firstName");
-        	String lastName = req.getParameter("lastName");
-        	//String addressId = req.getParameter("addressId");
-        	String street = req.getParameter("street");
-        	String city = req.getParameter("city");
-        	String state = req.getParameter("state");
-        	String zip = req.getParameter("zip"); 
-        	String country = req.getParameter("country");
-        	// dob must be in the format yyyy-mm-dd.
-        	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        	String stringDob = req.getParameter("dob");
-        	Date dob = new Date();
-        	
-        	try {
-        		dob = dateFormat.parse(stringDob);
-        	} catch (ParseException e) {
-        		e.printStackTrace();
-				throw new IOException(e);
-        	}
-	        try {
-	        	Address address = new Address(street, city, state, Integer.parseInt(zip), country);
-	        	address = addressDao.create(address);
-	        	Customer customer = new Customer(gender,userName, password,firstName, lastName, dob,
-	        			address.getAddressId());
-	        	customer = customerDao.create(customer);
-	        	messages.put("success", "Thanks for Signing up! You have successfully created " + userName + "!");
-	        } catch (SQLException e) {
+        }else
+			try {
+				if(customerDao.getCustomerFromUserName(userName)!=null){
+					messages.put("success","this username has already been used");
+				}else {
+					// Create the BlogUser.
+					String password = req.getParameter("password");
+					String gender = req.getParameter("gender");
+					String firstName = req.getParameter("firstName");
+					String lastName = req.getParameter("lastName");
+					//String addressId = req.getParameter("addressId");
+					String street = req.getParameter("street");
+					String city = req.getParameter("city");
+					String state = req.getParameter("state");
+					String zip = req.getParameter("zip"); 
+					String country = req.getParameter("country");
+					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+					String stringDob = req.getParameter("dob");
+					System.out.print(stringDob);
+					Date dob = null;
+					
+					try {
+						dob = dateFormat.parse(stringDob);
+						System.out.print(dob);
+					} catch (ParseException e) {
+						e.printStackTrace();
+						throw new IOException(e);
+					}
+				    try {
+				    	Address address = new Address(street, city, state, Integer.parseInt(zip), country);
+				    	address = addressDao.create(address);
+				    	Customer customer = new Customer(gender,userName, password,firstName, lastName, dob,
+				    			address.getAddressId());
+				    	customer = customerDao.create(customer);
+				    	messages.put("success", "Thanks for Signing up! You have successfully created " + userName + "!");
+				    } catch (SQLException e) {
+						e.printStackTrace();
+						throw new IOException(e);
+				    }
+				}
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
-				throw new IOException(e);
-	        }
-        }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         
         req.getRequestDispatcher("/CustomerCreate.jsp").forward(req, resp);
     }

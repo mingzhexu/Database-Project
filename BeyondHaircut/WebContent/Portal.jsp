@@ -10,10 +10,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Welcome to myPortal!</title>
+<style>
+body {
+    background-color;
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+body {background-color:lightblue}
+</style>
 </head>
 <body>
 	<h1>My Portal</h1>
-	<p align="center"> Dear friend ${fn:escapeXml(param.username)}, Welcome back!!</p>
+	<p align="center"> Hello ${fn:escapeXml(param.username)}, Welcome back!!</p>
 	<p align="right"><a href="Homepage.jsp"><button type="button">Sign Out</button></a></p>
 	<p>Make An Appointment</p>
 	<a href="AppointmentCreate.jsp?username=${fn:escapeXml(param.username)}">
@@ -24,6 +36,6 @@
 	<p>Appointment History</p>
 	<a href="GetAppointmentHistory.jsp?username=${fn:escapeXml(param.username)}">
 	<button type="button">Appointments History</button></a>
-
+<p><font color="darkblue" face="Comic sans MS" size="4">Check out our <a href="barbers?">Top Barbers</a> and their <a href="GetComments.jsp"> Popular Comments!</a></font></p>
 </body>
 </html>

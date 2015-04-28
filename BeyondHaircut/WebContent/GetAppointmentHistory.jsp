@@ -9,6 +9,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>My Appointment History</title>
+<style>
+body {
+    background-color;
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+p { 
+    word-spacing: 5px;
+}
+body {background-color:lightblue}
+</style>
 </head>
 <body>
 	<p align="left">
@@ -33,7 +47,6 @@
 		<tr>
 			<th>UserName</th>
 			<th>StoreId</th>
-			<th>AppointmentId</th>
 			<th>Date</th>
 			<th>BarberId</th>
 			<th>Style</th>
@@ -45,7 +58,6 @@
 
 				<td><a
 					href="getstoreinformation?storeid=<c:out value="${appointment.getStoreId()}"/>">Store</a></td>
-				<td><c:out value="${appointment.getAppointmentId()}" /></td>
 				<td><c:out value="${appointment.getDate()}" /></td>
 				<td><a
 					href="getbarberinformation?barberid=<c:out value="${appointment.getBarberId()}"/>">Barber</a></td>

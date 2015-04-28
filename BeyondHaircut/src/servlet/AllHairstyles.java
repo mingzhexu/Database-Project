@@ -38,6 +38,7 @@ public class AllHairstyles extends HttpServlet {
 		
 		try {
 			hairstyles = hairstyledao.getAllHairstyles();
+			System.out.print(hairstyles.size());
 			message.put("title", "Here are all the Hairstyles:");
 		} catch (SQLException e) {
 			e.printStackTrace();

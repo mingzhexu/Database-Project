@@ -9,17 +9,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Barbers</title>
+
+<style>
+body {background-color;
+	background-repeat: no-repeat;
+	background-position: left top;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+p {
+	word-spacing: 5px;
+}
+
+body {
+	background-color: lightblue
+}
+</style>
 </head>
 <body>
-	<h1>Here are our Barbers!</h1>
+<a href="Homepage.jsp"><font color="grey" face="Comic sans MS"
+	size="3"> HOME </font></a>
+
+<h1><font color="darkblue" face="Comic sans MS" size="8">
+Here are our Barbers!</font>
+</h1>
+<p>
+<img src="barbers.jpg" width="600" height = "550" align="left">
+</p>	
 	<form action="barbers" method="post"></form>
 	<table border="2">
 		<tr>
-			<th>BarberId</th>
+			<th>No.</th>
 			<th>FirstName</th>
 			<th>About</th>
 			<th>Rating</th>
 			<th>Choose me</th>
+			<th>Comments from Customers</th>
 		</tr>
 		<c:forEach items="${barbers}" var="barber">
 			<tr>
@@ -28,8 +55,10 @@
 				<td><c:out value="${barber.getAbout()}" /></td>
 				<td><c:out value="${barber.getRating()}" /></td>
 				<td>Choose <a href="AppointmentCreate.jsp"><c:out
-							value="${barber.getFirstName()}" /> </a> Barber No.<c:out
-						value="${barber.getBarberId()}" /></td>
+							value="${barber.getFirstName()}" /> </a> </td>
+				<td>For<a href="GetComments.jsp?barberId=${barber.getBarberId()}">
+				 ${barber.getFirstName()}</a></td>
+						
 
 			</tr>
 		</c:forEach>

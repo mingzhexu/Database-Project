@@ -12,13 +12,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BEYOND A HAIRCUT</title>
+<style>
+body {
+
+    background-color;
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+p { 
+    word-spacing: 5px;
+}
+body {background-color:lightblue}
+</style>
 </head>
+
+<a href="Homepage.jsp"><img src="BeyondHairCut.jpg" width="600" height = "150" align="top"></a>
+
 <body>
-<h1><font face="verdana" color="green"> Welcome to BEYOND A HAIRCUT</font></h1>
-<img src="loungebarber.jpg" width="340" height="280" align="right">
-<h2><font face="verdana" color="green"> Sign Up TODAY and Get 10% off!</font></h2>
-<br/><br/>
-<a href="Homepage.jsp">SIGN IN</a>
+<h1><font color="grey" face="Comic sans MS"> SIGN IN</font></h1>
 <section class="loginform cf">
 <form action="homepage" method="post">
 	<ul>
@@ -35,11 +49,11 @@
 	<p>
 		<span id="successMessage"><b>${messages.success}</b></span>
 	</p>
-<a href="CustomerCreate.jsp">SIGN UP</a>
+<p><font color="blue" face="Comic sans MS"> Haven't sign up yet? <a href="CustomerCreate.jsp">SIGN UP</a></font></p>
 
 
 
 <br/><br/>
-<p>Check out our <a href="Barbers.jsp">Top Barbers</a> and their <a href="GetComments.jsp"> Popular Comments!</a></p>
+
 </body>
 </html>

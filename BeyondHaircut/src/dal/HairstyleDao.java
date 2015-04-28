@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -51,7 +53,7 @@ public class HairstyleDao {
 			insertStmt.setNull(3, Types.BLOB);
 			insertStmt.setNull(4, Types.BLOB);
 			insertStmt.setInt(5, hairstyle.getPrice());
-			insertStmt.setInt(5, hairstyle.getDuration());
+			insertStmt.setInt(6, hairstyle.getDuration());
 
 
 			insertStmt.executeUpdate();
@@ -71,7 +73,7 @@ public class HairstyleDao {
 	}
 	
 	public int getPriceFromStyle(String style) throws SQLException{
-		String getHairstyle = "SELECT * from Hairstyle WHERE style = ?;";
+		String getHairstyle = "SELECT Hairstyle.price from Hairstyle WHERE style = ?;";
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
 		ResultSet results = null;
@@ -119,7 +121,7 @@ public class HairstyleDao {
 	}
 
 	public Hairstyle getHairFromStyle(String style) throws SQLException{
-		String getHairstyle = "SELECT * from Hairstyle WHERE style = ?;";
+		String getHairstyle = "SELECT Hairstyle from Hairstyle WHERE style = ?;";
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
 		ResultSet results = null;
@@ -167,6 +169,52 @@ public class HairstyleDao {
 		}
 		return null;
 	}
+	
+	public List<Hairstyle> getAllHairstyles() throws SQLException{
+		List<Hairstyle> hairstyles = new ArrayList<Hairstyle>();
+		String selectAllHairstyles =
+				"SELECT * From Hairstyle";  
+		Connection connection = null;
+		PreparedStatement selectStmt = null;
+		ResultSet results = null;
+		try {
+			connection = connectionManager.getConnection();
+			selectStmt = connection.prepareStatement(selectAllHairstyles);
+			results = selectStmt.executeQuery();
+
+			while(results.next()) {
+				String styl = results.getString("Style");
+				String gender = results.getString("Gender");
+				// first get the Blob, then convert blob into image
+				Blob pic = results.getBlob("Picture");
+				byte[] datapic = pic.getBytes(0, (int) pic.length());
+				BufferedImage picture = ImageIO.read(new ByteArrayInputStream(datapic));
+				
+				Blob inst = results.getBlob("Instance");
+				byte[] datainst = inst.getBytes(0, (int) inst.length());
+				BufferedImage instance = ImageIO.read(new ByteArrayInputStream(datainst));
+				int price = results.getInt("Price");
+				int duration = results.getInt("Duration");
+				
+				Hairstyle hairstyle = new Hairstyle(styl, gender, picture, instance ,price,duration);
+				hairstyles.add(hairstyle);
+			}
+		} catch (SQLException |IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(connection != null) {
+				connection.close();
+			}
+			if(selectStmt != null) {
+				selectStmt.close();
+			}
+			if(results != null) {
+				results.close();
+			}
+		}
+		return hairstyles ;
+	}
+
 
 
 	/**

@@ -66,8 +66,8 @@ public class AppointmentCreate extends HttpServlet{
 			}else {
 				// Create the Appointment
 				int customerId = customer.getCustomerID();
-				System.out.print(customer.getCustomerID());
-				DateFormat format = new SimpleDateFormat("yyyymmdd");
+				// System.out.print(customer.getCustomerID());
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 				String stringdate = req.getParameter("datetime");
 				
 				String barberid = req.getParameter("barberid");
@@ -92,7 +92,10 @@ public class AppointmentCreate extends HttpServlet{
 								datetime, customerId, 
 								Integer.parseInt(barberid), style);
 				appointment = appointmentDao.create(appointment);
-				messages.put("success", "Successfully created a comment for barber No." + barberid);
+				//messages.put("success", "Successfully make an appointment with barber No." + barberid);
+				String schedule_suc = "Confirmation.jsp?username="+ username;
+				resp.sendRedirect(schedule_suc);
+				return;
 			}
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block

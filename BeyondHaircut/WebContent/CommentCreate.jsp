@@ -12,6 +12,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Comment on Barbers!</title>
+<style>
+body {
+    background-color;
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+p { 
+    word-spacing: 5px;
+}
+body {background-color:lightblue}
+</style>
 </head>
 <body>
 <h1>Create Comment for Barber</h1>
@@ -25,7 +39,7 @@
 			<input id="barberId" name="barberId" value="">
 		</p>
 		<p>
-			<label for="content">My Comment: </label>
+			<label for="content">Comment: </label>
 			<input id="content" name="content" value="">
 		</p>
 		
@@ -33,10 +47,9 @@
 			<input type="submit">
 		</p>
 	</form>
-	<br/><br/>
 	<p>
 		<span id="successMessage"><b>${messages.success}</b></span>
 	</p>
-	<a href="GetComments.jsp"><button type="button"> GO BACK</button></a>
+	<p><input type="button" name="Submit" onclick="javascript:history.back(-1);" value="Go Back"></p>
 </body>
 </html>

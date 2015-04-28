@@ -35,7 +35,6 @@ public class CommentCreate extends HttpServlet {
 		commentDao = CommentDao.getInstance();
 		barderDao = BarberDao.getInstance();
 		customerDao = CustomerDao.getInstance();
-		
 	}
 
 	@Override

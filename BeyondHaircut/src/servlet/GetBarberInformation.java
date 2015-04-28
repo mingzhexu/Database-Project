@@ -50,7 +50,7 @@ public class GetBarberInformation extends HttpServlet {
         	try {
         		
         		barber = barberDao.getBarberInforbyBarberId(Integer.parseInt(barberid));
-        		message.put("title", "name for barberId " + barberid);
+        		message.put("title", "BarberId " + barberid + " gave me the haircut");
         		
             } catch (SQLException e) {
     			e.printStackTrace();
