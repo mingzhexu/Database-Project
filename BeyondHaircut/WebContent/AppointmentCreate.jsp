@@ -159,8 +159,6 @@ body {
 			<input type="submit">
 		</p>
 	</form>
-	<br />
-	<br />
 	<p>
 		<span id="successMessage"><b>${messages.success}</b></span>
 	</p>
@@ -171,7 +169,6 @@ body {
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="jquery.simple-dtpicker.js"></script>
-
 
 
 </body>

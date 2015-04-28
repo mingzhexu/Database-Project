@@ -107,7 +107,7 @@ body {
  	
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="jquery.simple-dtpicker.js"></script>	
-
+<p><input type="button" name="Submit" onclick="javascript:history.back(-1);" value="Go Back"></p>
  
 </body>
 </html>

@@ -28,31 +28,36 @@ body {
 </style>
 </head>
 <body>
-<a href="Homepage.jsp"><button type="button"> Home Page </button></a>
+<a href="Homepage.jsp"><font color="grey" face="Comic sans MS"
+	size="3"> HOME </font></a>
+	
 
 	<form action="getcomments" method="get">
-		<h1>Search for comments by BarberId</h1>
+		<h1><font color="purple" face="Comic sans MS" size="4">Search for comments on our barber ${fn:escapeXml(param.barberId)}</font></h1>
+		
 		<p>
 			<label for="barberId">BarberId</label>
 			<input id="barberId" name="barberId" value="${fn:escapeXml(param.barberId)}">
 		</p>
+		<font color="grey" face="Comic sans MS" size="2"> (Click the SUBMIT)</font>
 		<p>
 			<input type="submit">
 			<br/><br/><br/>
 			<span id="successMessage"><b>${messages.success}</b></span>
 		</p>
 	</form>
-	<br/>
-	<div id="CommentCreate"><a href="CommentCreate.jsp">Create Comment</a></div>
-	<br/>
-	<h1>Matching Comments</h1>
+	
+	<h1><font color="purple" face="Comic sans MS" size="4">Matching Comments</font></h1>
+	
+	<div id="CommentCreate" align="center"><a href="CommentCreate.jsp"><font color="purple" face="Comic sans MS" size="2">Leave My Comment</font></a></div>
+	
         <table border="1">
             <tr>
-                <th>BarberId</th>
-                <th>CommentId</th>
-                <th>Content</th>
-                <th>CustomerId</th>
-                <th>Delete Comment</th>
+                <th><font color="purple" face="Comic sans MS" size="2">BarberId</font></th>
+                <th><font color="purple" face="Comic sans MS" size="2">CommentId</font></th>
+                <th><font color="purple" face="Comic sans MS" size="2">Content</font></th>
+                <th><font color="purple" face="Comic sans MS" size="2">CustomerId</font></th>
+                <th><font color="purple" face="Comic sans MS" size="2">Delete Comment</font></th>
             </tr>
             <c:forEach items="${comments}" var="comment" >
                 <tr>
@@ -64,5 +69,6 @@ body {
                 </tr>
             </c:forEach>
        </table>
+     <p><input type="button" name="Submit" onclick="javascript:history.back(-1);" value="Go Back"></p>  
 </body>
 </html>

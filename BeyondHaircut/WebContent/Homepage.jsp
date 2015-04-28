@@ -28,9 +28,9 @@ p {
 body {background-color:lightblue}
 </style>
 </head>
-<img src="BeyondHairCut.jpg" width="600" height = "150" align="top">
-<p align="right" style="vertical-align: top;"><a href="SignIn.jsp"><font color="grey" face="Comic sans MS" size="3">SIGN_IN</font></a></p>
-<p align="right" style="vertical-align: top;"><a href="CustomerCreate.jsp"><font color="grey" face="Comic sans MS" size="3">SIGN_UP</font></a></p>
+<a href="Homepage.jsp"><img src="BeyondHairCut.jpg" width="600" height = "150" align="top"></a>
+<p align="right" style="vertical-align: top;"><a href="SignIn.jsp"><font color="purple" face="Comic sans MS" size="3">SIGN_IN</font></a></p>
+<p align="right" style="vertical-align: top;"><a href="CustomerCreate.jsp"><font color="purple" face="Comic sans MS" size="3">SIGN_UP</font></a></p>
 
 <body>
 <p>
@@ -38,8 +38,8 @@ body {background-color:lightblue}
 <a href="About.jsp"><font color="grey" face="Comic sans MS" size="5">OUR_STORY</font></a>
 <a href="barbers?" ><font color="grey" face="Comic sans MS" size="5">BARBERS</font></a>
 <a href="AppointmentCreate.jsp"><font color="grey" face="Comic sans MS" size="5">APPOINTMENTS</font></a>
-<a href="hairsyles?"><font color="grey" face="Comic sans MS" size="5">SERVICES</font></a>
-<a href="Homepage.jsp"><font color="grey" face="Comic sans MS" size="5">CONTACT</font></a>
+<a href="Service.jsp"><font color="grey" face="Comic sans MS" size="5">SERVICES</font></a>
+<a href="Contact.jsp"><font color="grey" face="Comic sans MS" size="5">CONTACT</font></a>
 </p>
 
 <!-- <p><i><font face="verdana" color="blue"> Welcome to BEYOND HAIRCUT!</font></i></p> -->

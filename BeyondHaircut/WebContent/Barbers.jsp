@@ -29,9 +29,9 @@ body {
 </style>
 </head>
 <body>
-<a href="Homepage.jsp"><font color="grey" face="Comic sans MS"
-	size="3"> HOME </font></a>
-
+<p align="right"><a href="Homepage.jsp"><font color="grey" face="Comic sans MS"
+	size="3"> HOME </font></a></p>
+<p><input type="button" name="Submit" onclick="javascript:history.back(-1);" value="Return"></p>
 <h1><font color="darkblue" face="Comic sans MS" size="8">
 Here are our Barbers!</font>
 </h1>
@@ -54,7 +54,7 @@ Here are our Barbers!</font>
 				<td><c:out value="${barber.getFirstName()}" /></td>
 				<td><c:out value="${barber.getAbout()}" /></td>
 				<td><c:out value="${barber.getRating()}" /></td>
-				<td>Choose <a href="AppointmentCreate.jsp"><c:out
+				<td>Choose <a href="AppointmentCreate.jsp?username=${fn:escapeXml(param.username)}"><c:out
 							value="${barber.getFirstName()}" /> </a> </td>
 				<td>For<a href="GetComments.jsp?barberId=${barber.getBarberId()}">
 				 ${barber.getFirstName()}</a></td>
@@ -63,7 +63,7 @@ Here are our Barbers!</font>
 			</tr>
 		</c:forEach>
 	</table>
-<p><input type="button" name="Submit" onclick="javascript:history.back(-1);" value="Return"></p>
+
 
 </body>
 </html>

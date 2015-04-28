@@ -32,12 +32,13 @@ body {background-color:lightblue}
 <a href="Homepage.jsp"><font color="grey" face="Comic sans MS"
 	size="3"> HOME </font></a>
 	
-<h1> About Us --- </h1>
+<h1 align="center"> --- OUR STORY --- </h1>
 <p><font color="grey" face="Comic sans MS" size="5">
 "... it was the idea of injecting life into ritualized social interactions that intrigued them..."
 </font></p>
+<br>
 
-<img src="barbershoppic.jpg" width="300" height = "350" align="left">
+<img src="barbershoppic.jpg" width="350" height = "350" align="right">
 
 <p><font color="grey" face="Comic sans MS" size="5">
 Beyond Haircut Barbershop is dedicated to quality haircuts and exceptional customer service at an affordable price in a one-of-a-kind atmosphere.
