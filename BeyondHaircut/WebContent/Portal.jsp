@@ -37,6 +37,8 @@ body {background-color:lightblue}
 	<p>Appointment History</p>
 	<a href="GetAppointmentHistory.jsp?username=${fn:escapeXml(param.username)}">
 	<button type="button">Appointments History</button></a>
+	<p><a href="CustomerUpdate.jsp?username=${fn:escapeXml(param.username)}">
+	<font color="darkblue" face="Comic sans MS" size="3">Change My Password</font></a></p>
 <p><font color="darkblue" face="Comic sans MS" size="4">Check out our 
 <a href="barbers?username=${fn:escapeXml(param.username)}">Top Barbers</a></font></p>
 <p><input type="button" name="Submit" onclick="javascript:history.back(-1);" value="Go Back"></p>

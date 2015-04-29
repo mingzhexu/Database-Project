@@ -9,13 +9,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Update your password</title>
+<style>
+body {
+
+    background-color;
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+body {background-color:lightblue}
+</style>
 </head>
 <body>
 	<h1>update my password</h1>
 	<form action="customerupdate" method="post">
 		<p>
 			<label for="userName">UserName</label>
-			<input id="userName" name="userName" value="${fn:escapeXml(param.userName)}">
+			<input id="userName" name="userName" value="${fn:escapeXml(param.username)}">
 		</p>
 		<p>
 			<label for="password">New Password</label>
@@ -29,5 +42,6 @@
 	<p>
 		<span id="successMessage"><b>${messages.success}</b></span>
 	</p>
+	<a href="Portal.jsp?username=${fn:escapeXml(param.username)}">My Portal</a>
 </body>
 </html>
