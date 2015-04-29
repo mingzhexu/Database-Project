@@ -14,7 +14,7 @@ body {
     background-color;
     background-repeat: no-repeat;
     background-position: left top;
-    margin-top: 0px;
+    margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -25,6 +25,9 @@ body {background-color:lightblue}
 </style>
 </head>
 <body>
+<a href="Homepage.jsp"><font color="grey" face="Comic sans MS"
+	size="3"> HOME </font></a>
+<p><input type="button" name="Submit" onclick="javascript:history.back(-1);" value="Return"></p>
 	<h1>${messages.title}</h1>
         <table border="1">
             <tr>
@@ -40,7 +43,7 @@ body {background-color:lightblue}
        </table>
        <p><font color="grey" face="Comic sans MS" size="3"> 
        Tell us more about this barber! We'd love to hear your feedback! </font></p>
-       <a href="CommentCreate.jsp?username=${fn:escapeXml(param.username)}">
+       <a href="CommentCreate.jsp?barberId=${fn:escapeXml(param.barberId)}">
        <font color="grey" face="Comic sans MS" size="3"> Comment</font></a>
 </body>
 </html>

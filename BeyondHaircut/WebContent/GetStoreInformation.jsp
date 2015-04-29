@@ -9,6 +9,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Get store information for a storeId</title>
+<style>
+body {
+
+    background-color;
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+p { 
+    word-spacing: 5px;
+}
+body {background-color:lightblue}
+</style>
 </head>
 <body>
 	<h1>${messages.title}</h1>

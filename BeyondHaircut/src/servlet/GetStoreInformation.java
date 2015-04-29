@@ -50,7 +50,7 @@ public class GetStoreInformation extends HttpServlet {
         	try {
         		store = storeDao.getStoreInforbyStoreId(Integer.parseInt(storeid));
         	    address = addressDao.getAddressById(store.getAddressId());
-        		message.put("title", "Address inforamtion for store" + storeid);
+        		message.put("title", "This is the Address for Store" + storeid);
         		
             } catch (SQLException e) {
     			e.printStackTrace();

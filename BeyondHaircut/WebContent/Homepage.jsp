@@ -28,7 +28,7 @@ p {
 body {background-color:lightblue}
 </style>
 </head>
-<a href="Homepage.jsp"><img src="BeyondHairCut.jpg" width="600" height = "150" align="top"></a>
+<a href="Homepage.jsp"><img src="BeyondHairCut.png" width="600" height = "150" align="top"></a>
 <p align="right" style="vertical-align: top;"><a href="SignIn.jsp"><font color="purple" face="Comic sans MS" size="3">SIGN_IN</font></a></p>
 <p align="right" style="vertical-align: top;"><a href="CustomerCreate.jsp"><font color="purple" face="Comic sans MS" size="3">SIGN_UP</font></a></p>
 

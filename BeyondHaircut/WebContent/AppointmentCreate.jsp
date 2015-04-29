@@ -94,6 +94,10 @@ body {
 <a href="Homepage.jsp"><font color="grey" face="Comic sans MS"
 	size="3"> HOME </font></a>
 	<h1>Make An Appointment</h1>
+	<p><font color="red" face="Comic sans MS"
+	size="3">
+		<span id="successMessage"><b>${messages.success}</b></span>
+	</font></p>
 	<form action="appointmentcreate" method="post">
 		<p>
 			<label for="userName">UserName</label> <input id="userName"
@@ -122,10 +126,10 @@ body {
 		
 		<!-- pick a location -->
 		<h2>Select the barber store location:</h2>
-		<label><input type="checkbox" value="1" name="storeid">
-			Seattle</label> <label><input type="checkbox" value="2"
+		<label><input type="radio" value="1" name="storeid">
+			Seattle</label> <label><input type="radio" value="2"
 			name="storeid"> Kirkland</label> <label><input
-			type="checkbox" value="3" name="storeid"> Bellevue</label>
+			type="radio" value="3" name="storeid"> Bellevue</label>
 
 
 
@@ -159,9 +163,7 @@ body {
 			<input type="submit">
 		</p>
 	</form>
-	<p>
-		<span id="successMessage"><b>${messages.success}</b></span>
-	</p>
+	
 	
 	<p><input type="button" name="Submit" onclick="javascript:history.back(-1);" value="Return"></p>
 	

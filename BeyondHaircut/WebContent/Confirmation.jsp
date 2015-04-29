@@ -40,7 +40,7 @@ body {background-color:lightblue}
 	</h2>
 	<br />
 	<br />
-	<a href="Portal.jsp?username=${fn:escapeXml(param.username)}">Back To My Portal</a>
+	<a href="Homepage.jsp?username=${fn:escapeXml(param.username)}">HOME</a>
 	<p>
 		<span id="successMessage"><b>${messages.success}</b></span>
 	</p>

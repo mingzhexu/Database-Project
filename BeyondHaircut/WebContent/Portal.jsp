@@ -24,8 +24,9 @@ body {background-color:lightblue}
 </style>
 </head>
 <body>
-	<h1>My Portal</h1>
-	<p align="center"> Hello ${fn:escapeXml(param.username)}, Welcome back!!</p>
+	<h1><font color="darkblue" face="Comic sans MS" size="8">My Portal</font></h1>
+	<p align="center"><font color="darkblue" face="Comic sans MS" size="5">
+	 Hello ${fn:escapeXml(param.username)}, Welcome back!!</font></p>
 	<p align="right"><a href="Homepage.jsp"><button type="button">Sign Out</button></a></p>
 	<p>Make An Appointment</p>
 	<a href="AppointmentCreate.jsp?username=${fn:escapeXml(param.username)}">

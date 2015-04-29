@@ -29,7 +29,7 @@ body {background-color:lightblue}
 </style>
 </head>
 
-<a href="Homepage.jsp"><img src="BeyondHairCut.jpg" width="600" height = "150" align="top"></a>
+<a href="Homepage.jsp"><img src="BeyondHairCut.png" width="600" height = "150" align="top"></a>
 
 <body>
 <h1><font color="grey" face="Comic sans MS"> SIGN IN</font></h1>

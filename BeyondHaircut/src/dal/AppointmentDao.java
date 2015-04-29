@@ -2,12 +2,19 @@ package dal;
 import model.*;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+//import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.util.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 
 
 public class AppointmentDao {
@@ -113,6 +120,48 @@ public class AppointmentDao {
 		
 		return appointments;
 	}
+	public Appointment SelectAppFromBidDate(int barberid, Date datetime) throws SQLException{
+		String selectApp = "SELECT * FROM APPOINTMENT WHERE BarberId = ? AND Date = ?;";
+		Connection connection = null;
+		PreparedStatement selectStmt = null;
+		ResultSet results = null;
+		try {
+			connection = connectionManager.getConnection();
+			selectStmt = connection.prepareStatement(selectApp);
+			selectStmt.setInt(1, barberid);
+			
+			java.sql.Date sqldate = new java.sql.Date(datetime.getTime());
+			selectStmt.setDate(2, sqldate);
+			
+			results = selectStmt.executeQuery();
+			
+			if(results.next()) {
+				int storeid = results.getInt("StoreId");
+			    datetime = results.getDate("Date");
+				int customerid = results.getInt("CustomerId");
+				String style = results.getString("Style");
+				System.out.print(barberid +" this ");
+				
+				Appointment app = new Appointment(storeid, datetime, customerid, barberid, style);
+				return app;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			if(connection != null) {
+				connection.close();
+			}
+			if(selectStmt != null) {
+				selectStmt.close();
+			}
+			if(results != null) {
+				results.close();
+			}
+		}
+		return null;
+	}
+	
 	
     public Appointment delete(Appointment appointment) throws SQLException {
 		

@@ -93,7 +93,7 @@ public class AddressDao {
 			results = selectStmt.executeQuery();
 
 			if(results.next()) {
-				int aid = results.getInt(AddressId);
+				int aid = results.getInt("AddressId");
 				String street = results.getString("Street");
 				String city = results.getString("City");
 				String state = results.getString("State");
